@@ -1,0 +1,10 @@
+ .no-focus:focus {
+
+     outline: none;
+     box-shadow: none;
+ }
+
+ .circle {
+
+     clip-path: circle();
+ }
