@@ -57,22 +57,24 @@ $hasil_siswa = mysqli_fetch_assoc($query_siswa);
 			</div>
 		</div>
 	</section>
-	<div class="container px-4 text-center ">
+	<div class="container text-center ">
 		<div class="row mt-5">
-			<div class="col">
+			<div class="col-md-12">
 				<img class="mb-4" src="../vector/undraw_voting_nvu7.svg" width="250">
 				<?php if ($hasil_siswa['pemilos'] == "belum memilih") : ?>
 					<h3>Selamat Datang <span class="text-warning"><?= $hasil_siswa['nama']; ?></span> </h3>
 					<h3><?= $hasil_siswa['kelas']; ?></h3>
 					<p class="mt-3 text-muted">Klik Tombol Mulai Untuk Melakukan Voting</p>
-					<a href="pilih_pemilos.php"><button type="button" class="btn btn-warning rounded-3 mb-3">Mulai</button></a>
-					<a href="logout.php"><button type="button" class="btn btn-outline-dark rounded-3 mx-3 mb-3">Keluar</button></a>
+					<div class="d-grid gap-2 mt-4 col-md-6 mx-auto">
+						<a href="pilih_pemilos.php"><button type="button" class="btn btn-warning rounded-3 mb-3">Mulai</button></a>
+						<a href="logout.php"><button type="button" class="btn btn-outline-dark rounded-3 mx-3 mb-3">Keluar</button></a>
+					</div>
 
 				<?php else : ?>
 					<p class="fs-5 mb-0">Terima Kasih Sudah Memilih <br> <span class="fw-bold fs-4 text-warning"><?= $hasil_siswa['nama']; ?></span> </p>
 					<h3 class=""><?= $hasil_siswa['kelas']; ?></h2>
 						<p class="mt-3 text-muted">Anda Sudah Memilih dan Tidak bisa melakukan Voting Lagi</p>
-						<div class="row pt-4">
+						<div class="d-grid gap-2 mt-4 col-md-6 mx-auto">
 							<a href="diagram.php"><button type="button" class="btn btn-warning rounded-3 mb-3">Lihat Diagram</button></a>
 							<a href="logout.php"><button type="button" class="btn btn-outline-dark rounded-3 mb-3">Keluar</button></a>
 						</div>
