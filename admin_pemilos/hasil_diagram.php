@@ -198,11 +198,41 @@ $sum = $row['value_sum'];
                                                 <div class="progress mb-3">
                                                     <div class="progress-bar bg-dark" role="progressbar" style="width: <?= $total ?>%" aria-valuenow="<?= $calon['jumlah_vote']; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
-                                                <p class="fs-6 mb-0"><?= $calon['jumlah_vote'] ?> Orang</p>
+
+                                                <!-- trigger change vote -->
+                                                <p type="button" data-bs-toggle="modal" data-bs-target="#calon<?= $calon['id_calon'] ?>" class="fs-6 mb-0"><?= $calon['jumlah_vote'] ?> Orang</p>
+                                                <!-- end trigger change vote -->
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- change vote modal-->
+                        <div class="modal fade" id="calon<?= $calon['id_calon'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Ubah Jumlah Vote</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form action="" method="post">
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <input type="hidden" name="idCalon" value="<?= $calon['id_calon'] ?>">
+                                                <label for="jumlahvote" class="form-label">Jumlah Vote <?= $calon['nama_calon'] ?></label>
+                                                <input type="number" name="valueVote" value="<?= $calon['jumlah_vote'] ?>" class="form-control" id="jumlahvote" aria-describedby="emailHelp">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" name="change_vote" class="btn btn-dark">Save changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end change vote modal-->
+
                     </div>
                 <?php endforeach; ?>
                 <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">

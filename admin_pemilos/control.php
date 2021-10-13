@@ -506,3 +506,11 @@ if (isset($_POST['resetPassword'])) {
 }
 
 // end reset password
+
+// Change Vote Value
+if (isset($_POST['change_vote'])) {
+    $id_change_vote_calon = mysqli_real_escape_string($conn, stripslashes($_POST['idCalon']));
+    $value_change_vote = mysqli_real_escape_string($conn, stripslashes($_POST['valueVote']));
+    $query_change_vote = mysqli_query($conn, " UPDATE `data_calon` SET `jumlah_vote` = '$value_change_vote' WHERE `data_calon`.`id_calon` = $id_change_vote_calon");
+}
+// end Change Vote Value
