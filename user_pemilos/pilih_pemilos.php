@@ -120,7 +120,7 @@ $total_vote = mysqli_fetch_assoc($query_vote);
                                     <?php if ($total_vote['status'] == 'enable') : ?>
                                         <button type="button" name="vote" class="btn btn-warning px-5 vote" data-bs-toggle="modal" data-bs-target="#pilih<?= $calon['id_calon']; ?>">Pilih</button>
                                     <?php else : ?>
-                                        <button type="button" class=" btn btn-secondary px-5 vote" disabled>Disable</button>
+                                        <button type="button" class=" btn btn-dark border-1 border-warning px-5 vote" disabled>Disable</button>
                                     <?php endif; ?>
                                 </div>
 
@@ -133,12 +133,12 @@ $total_vote = mysqli_fetch_assoc($query_vote);
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Details</h5>
-                                    <button type="button" class="btn-outline-dark" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>Visi</p>
+                                    <p class="h6">Visi</p>
                                     <p><?= $calon['visi']; ?></p>
-                                    <p>Misi</p>
+                                    <p class="h6">Misi</p>
                                     <p><?= $calon['misi']; ?></p>
                                 </div>
                             </div>

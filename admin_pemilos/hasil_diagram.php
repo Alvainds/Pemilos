@@ -200,7 +200,7 @@ $sum = $row['value_sum'];
                                                 </div>
 
                                                 <!-- trigger change vote -->
-                                                <p type="button" data-bs-toggle="modal" data-bs-target="#calon<?= $calon['id_calon'] ?>" class="fs-6 mb-0"><?= $calon['jumlah_vote'] ?> Orang</p>
+                                                <p style="cursor:default" type="button" data-bs-toggle="modal" data-bs-target="#calon<?= $calon['id_calon'] ?>" class="fs-6 mb-0"><?= $calon['jumlah_vote'] ?> Orang</p>
                                                 <!-- end trigger change vote -->
                                     </div>
                                 </div>
