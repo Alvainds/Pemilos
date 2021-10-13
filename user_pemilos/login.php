@@ -34,7 +34,7 @@ if (isset($_SESSION['no_induk']) && isset($_SESSION['password'])) {
             <div class="row vh-100 d-flex justify-content-center align-content-center">
 
                 <div class="col-md-6">
-                    <i class="bi bi-pin-angle-fill fs-1 text-warning pb-4"></i>
+                    <img src="../vector/tecnomusaba.png" width="40" alt="">
                     <div class="border-0">
                         <div class="py-3">
 
@@ -60,13 +60,13 @@ if (isset($_SESSION['no_induk']) && isset($_SESSION['password'])) {
                                             <i class="bi bi-eye-slash text-dark d-none" id="hide_eye"></i>
                                         </span>
                                     </div>
-                                    <div class="form-text my-3">We'll never share your Password with anyone else.</div>
+                                    <div class="form-text my-3">Jangan sebarkan passwordmu ke orang lain.</div>
                                 </div>
                                 <div class="d-grid gap-2 mt-5">
                                     <button class="btn btn-warning py-3 fs-6" type="submit" name="login" value="masuk">
                                         Masuk
                                     </button>
-                                    <div class="form-text text-center">Masuk Sekarang</div>
+                                    <div class="form-text text-center">By Technopark</div>
                                 </div>
                             </form>
                         </div>
