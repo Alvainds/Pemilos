@@ -92,16 +92,16 @@ $total_vote = mysqli_fetch_assoc($query_vote);
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Pilih Vote</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Pilih Calon</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <form action="" method="POST">
                                     <input type="hidden" name="vote" value="<?= $calon['id_calon']; ?>">
                                     <div class="modal-body">
-                                        <p>Apakah anda yakin ingin memilih</p>
+                                        <p>Apakah anda yakin ingin memilih <span class="text-warning fw-bold"><?= $calon['nama_calon']; ?></span> Sebagai Ketua IPM ?</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" name="vote" class="btn btn-danger" name="hapusDataSiswa" value="<?= mysqli_real_escape_string($conn, $calon['id_calon']); ?>">Pilih</button>
+                                        <button type="submit" name="vote" class="btn btn-warning" name="hapusDataSiswa" value="<?= mysqli_real_escape_string($conn, $calon['id_calon']); ?>">IYA</button>
                                     </div>
                                 </form>
                             </div>

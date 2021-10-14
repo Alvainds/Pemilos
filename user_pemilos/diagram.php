@@ -85,7 +85,12 @@ $sum = $row['value_sum'];
                 </div>
                 <?php foreach ($query_calon as $calon) : ?>
                     <?php
-                    $total = $calon['jumlah_vote'] / $sum * 100;
+                    if ($sum == 0) {
+                        $total = $calon['jumlah_vote']  * 100;
+                    } else {
+                        $total = $calon['jumlah_vote'] / $sum * 100;
+                    }
+
                     ?>
                     <div class="row mb-3">
                         <div class="p-3 border bg-white round-3">
@@ -101,7 +106,7 @@ $sum = $row['value_sum'];
                                                 <div class="progress mb-3">
                                                     <div class="progress-bar bg-dark" role="progressbar" style="width: <?= $total ?>%" aria-valuenow="<?= $calon['jumlah_vote']; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
-                                                <p class="fs-6 mb-0"><?= mysqli_real_escape_string($conn, $calon['jumlah_vote']); ?> Orang</p>
+                                                <p class="fs-6 mb-0"><?= $total ?>%</p>
                                     </div>
 
                                 </div>
