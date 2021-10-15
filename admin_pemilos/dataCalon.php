@@ -120,6 +120,12 @@ $query_calon = mysqli_query($conn, "SELECT * FROM data_calon ");
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link " href="cetak.php" target="_blank">
+                                <i class="bi bi-file-pdf fs-6 pe-1"></i>
+                                Cetak PDF
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="logout.php">
                                 <i class="bi bi-box-arrow-left fs-6 pe-1"></i>
                                 Log out</a>

@@ -151,6 +151,12 @@ INNER JOIN tb_login ON data_siswa.no_induk_siswa = tb_login.no_induk_siswa WHERE
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link " href="cetak.php" target="_blank">
+                                <i class="bi bi-file-pdf fs-6 pe-1"></i>
+                                Cetak PDF
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="logout.php">
                                 <i class="bi bi-box-arrow-left fs-6 pe-1"></i>
                                 Log out</a>

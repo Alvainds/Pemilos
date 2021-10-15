@@ -92,6 +92,10 @@ INNER JOIN tb_login ON data_siswa.no_induk_siswa = tb_login.no_induk_siswa WHERE
       background-color: white !important;
       border: 1px solid silver !important;
     }
+
+    .border-5 {
+      border-radius: 5px;
+    }
   </style>
 
 
@@ -155,6 +159,12 @@ INNER JOIN tb_login ON data_siswa.no_induk_siswa = tb_login.no_induk_siswa WHERE
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link " href="cetak.php" target="_blank">
+                <i class="bi bi-file-pdf fs-6 pe-1"></i>
+                Cetak PDF
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="logout.php">
                 <i class="bi bi-box-arrow-left fs-6 pe-1"></i>
                 Log out</a>
@@ -200,7 +210,7 @@ INNER JOIN tb_login ON data_siswa.no_induk_siswa = tb_login.no_induk_siswa WHERE
         </div>
         <div class="row mb-3">
           <div class="col-md mb-3">
-            <div class="card p-3 bg-light border-0 data-pemilos">
+            <div class="card p-3 bg-light border-0 border-start border-5 border-warning data-pemilos">
               <div class="row">
                 <div class="col-3 d-flex justify-content-center align-items-center"><i class="bi bi-person fs-1 text-warning"></i></div>
                 <div class="col-7">
@@ -216,7 +226,7 @@ INNER JOIN tb_login ON data_siswa.no_induk_siswa = tb_login.no_induk_siswa WHERE
           </div>
 
           <div class="col-md mb-3">
-            <div class="card p-3 bg-light border-0 data-pemilos ">
+            <div class="card p-3 bg-light border-0 border-start border-5 border-success data-pemilos ">
               <div class="row">
                 <div class="col-3 d-flex justify-content-center align-items-center"><i class="bi bi-person-check fs-1 text-success"></i></div>
                 <div class="col-7">
@@ -232,7 +242,7 @@ INNER JOIN tb_login ON data_siswa.no_induk_siswa = tb_login.no_induk_siswa WHERE
           </div>
 
           <div class="col-md mb-3">
-            <div class="card p-3 bg-light border-0 data-pemilos">
+            <div class="card p-3 bg-light border-0 border-start border-5 border-danger data-pemilos">
               <div class="row">
                 <div class="col-3 d-flex justify-content-center align-items-center"><i class="bi bi-person-x fs-1 text-danger"></i></div>
                 <div class="col-7">
