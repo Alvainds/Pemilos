@@ -42,7 +42,7 @@ if (isset($_POST['importDataSiswa'])) {
         $sheetData = $sheetName->toArray();
         for ($i = 1; $i < count($sheetData); $i++) {
             $no_induk = $sheetData[$i]['1'];
-            $nama = $sheetData[$i]['2'];
+            $nama = addslashes($sheetData[$i]['2']);
             $nama_kelas = $sheetData[$i]['3'];
             $pass = RandomString(5);
             $aktif = 0;

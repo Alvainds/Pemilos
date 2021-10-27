@@ -34,7 +34,7 @@ if (isset($_SESSION['no_induk']) && isset($_SESSION['password'])) {
             <div class="row vh-100 d-flex justify-content-center align-content-center">
 
                 <div class="col-md-6">
-                    <img src="../vector/tecnomusaba.png" width="40" alt="">
+                    <img src="vector/tecnomusaba.png" width="40" alt="">
                     <div class="border-0">
                         <div class="py-3">
 

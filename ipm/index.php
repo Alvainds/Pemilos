@@ -1,7 +1,7 @@
 <?php
 include 'control.php';
 if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
-    header('Location:login.php');
+    header('Location:login_ipm.php');
 }
 
 $query_calon = mysqli_query($conn, "SELECT * FROM data_calon");
@@ -19,6 +19,8 @@ $sum = $row['value_sum'];
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
+    <meta http-equiv="refresh" content="3">
+
     <title>Pemilos | Diagram</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -30,6 +32,12 @@ $sum = $row['value_sum'];
     <link href="css/footers.css" rel="stylesheet">
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -88,98 +96,28 @@ $sum = $row['value_sum'];
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-
     </header>
 
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                <div class="position-sticky pt-3">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="index.php">
-                                <i class="bi bi-house-door fs-6 pe-1"></i>
-                                Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="dataCalon.php">
-                                <i class="bi bi-clipboard-data fs-6 pe-1"></i>
-                                Data Calon
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="dataKelas.php">
-                                <i class="bi bi-bookmarks fs-6 pe-1"></i>
-                                Data Kelas
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="hasil_diagram.php">
-                                <i class="bi bi-circle-half fs-6 pe-1"></i>
-                                Hasil Pemilos
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="team.php">
-                                <i class="bi bi-info-circle fs-6 pe-1"></i>
-                                About
-                            </a>
-                        </li>
-                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-2 mb-1 text-muted">
-                            <span>Advanced</span>
-                        </h6>
-                        <li class="nav-item">
-                            <a class="nav-link " href="setting.php">
-                                <i class="bi bi-gear fs-6 pe-1"></i>
-                                Setting
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="cetak.php" target="_blank">
-                                <i class="bi bi-file-pdf fs-6 pe-1"></i>
-                                Cetak PDF
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="logout.php">
-                                <i class="bi bi-box-arrow-left fs-6 pe-1"></i>
-                                Log out</a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-                <div class="card p-4 m-3 text-center" href="hasil_diagram.php">
-                    <p class="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga in unde nostrum voluptatum quam soluta assumenda voluptates! Distinctio</p>
-                    <button type="button" class="btn btn-outline-dark btn-sm">Follow Us</button>
-                </div>
-
-            </nav>
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <main class="col-md-12 ms-sm-auto col-lg-12 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h3>Dashboard Pemilos</h3>
+                    <h3>Dashboard Diagram</h3>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                            <li class="breadcrumb-item">Diagram</li>
-
+                            <li class="breadcrumb-item"><a href="logout.php" style="text-decoration:none; color: black;">Logout</a></li>
                         </ol>
                     </nav>
                 </div>
-                <div class="row d-flex justify-content-center mx-2">
-                    <div class="col-md bg-light round-3 border bg-white p-3">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-12 bg-light round-3 border bg-white p-3">
                         <center>
-                            <canvas id="myChart" style="width: 100%; max-width:600px;"></canvas>
+                            <canvas id="myChart" style="width:100%; max-width:600px;"></canvas>
                         </center>
-
                     </div>
                 </div>
                 <div class="row px-3 mt-3">
                     <h6>List Calon</h6>
-
                 </div>
                 <?php foreach ($query_calon as $calon) : ?>
                     <?php
@@ -206,39 +144,12 @@ $sum = $row['value_sum'];
                                                 </div>
 
                                                 <!-- trigger change vote -->
-                                                <p style="cursor:default" type="button" data-bs-toggle="modal" data-bs-target="#calon<?= $calon['id_calon'] ?>" class="fs-6 mb-0"><?= $total ?> %</p>
+                                                <p style="cursor:default" type="button" data-bs-toggle="modal" data-bs-target="#calon<?= $calon['id_calon'] ?>" class="fs-6 mb-0"><?= $calon['jumlah_vote'] ?> Orang</p>
                                                 <!-- end trigger change vote -->
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- change vote modal-->
-                        <div class="modal fade" id="calon<?= $calon['id_calon'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Ubah Jumlah Vote</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <form action="" method="post">
-                                        <div class="modal-body">
-                                            <div class="mb-3">
-                                                <input type="hidden" name="idCalon" value="<?= $calon['id_calon'] ?>">
-                                                <label for="jumlahvote" class="form-label">Jumlah Vote <?= $calon['nama_calon'] ?></label>
-                                                <input type="number" name="valueVote" value="<?= $calon['jumlah_vote'] ?>" class="form-control" id="jumlahvote" aria-describedby="emailHelp">
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" name="change_vote" class="btn btn-dark">Save changes</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end change vote modal-->
-
                     </div>
                 <?php endforeach; ?>
                 <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -310,6 +221,8 @@ $sum = $row['value_sum'];
                 }]
             },
             options: {
+                //cutoutPercentage: 40,
+                responsive: true,
                 animation: {
                     duration: 0
                 }

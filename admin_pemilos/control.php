@@ -6,6 +6,7 @@ require 'vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 
 function generateRandomString($length = 25)
 
@@ -87,12 +88,9 @@ if (isset($_POST['simpanDataSiswa'])) {
     // cek apakah data kosong atau tidak 
     if (!empty(trim($no_induk_tambah_siswa)) && !empty(trim($nama_tambah_siswa)) && !empty(trim($kelas_tambah_siswa))) {
         if (cek_nisn($conn, $no_induk_tambah_siswa) == 0) {
-            if (strlen($no_induk_tambah_siswa) < 6) {
+            if (strlen($no_induk_tambah_siswa) < 6) {   
                 if (cek_kelas($conn, $kelas_tambah_siswa) !== $isi_data_kelas) {
-                    $query_insert = mysqli_query(
-                        $conn,
-                        "INSERT INTO data_siswa (no_induk_siswa,nama,kelas,pemilos) VALUES('$no_induk_tambah_siswa', '$nama_tambah_siswa', '$kelas_tambah_siswa', 'belum memilih') "
-                    );
+                    $query_insert = mysqli_query($conn, "INSERT INTO data_siswa (no_induk_siswa,nama,kelas,pemilos) VALUES('$no_induk_tambah_siswa', '$nama_tambah_siswa', '$kelas_tambah_siswa', 'belum memilih') ");
                     $query_login = mysqli_query($conn, "INSERT INTO tb_login (no_induk_siswa,password,aktif) VALUES('$no_induk_tambah_siswa', '$pass','$aktif') ");
                     if ($query_insert) {
                         echo "<script>alert('Data siswa berhasil ditambahkan'); </script>";
@@ -398,9 +396,17 @@ if (isset($_POST['downloadX'])) {
     ];
     $i = $i - 1;
     $sheet->getStyle('A1:C' . $i)->applyFromArray($styleArray);
-    $writer = new Xlsx($spreadsheet);
-    $writer->save('Data_Siswa.xlsx');
-    echo "<script>window.location = 'Data_Siswa.xlsx'; alert('berhasil export data'); document.location.href = 'index.php';</script>";
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment;filename="data-siswa.xlsx"');
+    header('Cache-Control: max-age=0');
+    header('Cache-Control: max-age=1');
+    header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+    header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+    header('Cache-Control: cache, must-revalidate');
+    header('Pragma: public');
+
+    $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+    $writer->save('php://output');
 }
 
 if (isset($_POST['downloadXI'])) {
@@ -436,9 +442,17 @@ if (isset($_POST['downloadXI'])) {
     ];
     $i = $i - 1;
     $sheet->getStyle('A1:C' . $i)->applyFromArray($styleArray);
-    $writer = new Xlsx($spreadsheet);
-    $writer->save('Data_Siswa.xlsx');
-    echo "<script>window.location = 'Data_Siswa.xlsx'; alert('berhasil export data'); document.location.href = 'index.php';</script>";
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment;filename="data-siswa.xlsx"');
+    header('Cache-Control: max-age=0');
+    header('Cache-Control: max-age=1');
+    header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+    header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+    header('Cache-Control: cache, must-revalidate');
+    header('Pragma: public');
+
+    $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+    $writer->save('php://output');
 }
 
 if (isset($_POST['downloadXII'])) {
@@ -474,9 +488,17 @@ if (isset($_POST['downloadXII'])) {
     ];
     $i = $i - 1;
     $sheet->getStyle('A1:C' . $i)->applyFromArray($styleArray);
-    $writer = new Xlsx($spreadsheet);
-    $writer->save('Data_Siswa.xlsx');
-    echo "<script>window.location = 'Data_Siswa.xlsx'; alert('berhasil export data'); document.location.href = 'index.php';</script>";
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment;filename="data-siswa.xlsx"');
+    header('Cache-Control: max-age=0');
+    header('Cache-Control: max-age=1');
+    header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+    header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+    header('Cache-Control: cache, must-revalidate');
+    header('Pragma: public');
+
+    $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+    $writer->save('php://output');
 }
 
 // Akhir Bagian Data Kelas
@@ -514,3 +536,12 @@ if (isset($_POST['change_vote'])) {
     $query_change_vote = mysqli_query($conn, " UPDATE `data_calon` SET `jumlah_vote` = '$value_change_vote' WHERE `data_calon`.`id_calon` = $id_change_vote_calon");
 }
 // end Change Vote Value
+
+// hapus semua data 
+
+if (isset($_POST['hapusSemuaData'])) {
+    $query_delete_semua = mysqli_query($conn, "TRUNCATE TABLE data_siswa");
+    $query_delete_semua_2 = mysqli_query($conn, "TRUNCATE TABLE tb_login_siswa");
+}
+
+// end hapus semua data 

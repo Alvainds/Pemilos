@@ -316,7 +316,7 @@ INNER JOIN tb_login ON data_siswa.no_induk_siswa = tb_login.no_induk_siswa WHERE
                 <div class="row">
                   <span class="mx-2 mb-3 text-muted">Export Data Kelas</span>
                 </div>
-                <form action="" method="POST">
+                <form action="control.php" method="POST">
                   <button type="submit" name="downloadX" class="btn btn-light mb-3 mx-2">
                     X
                   </button>
@@ -326,12 +326,11 @@ INNER JOIN tb_login ON data_siswa.no_induk_siswa = tb_login.no_induk_siswa WHERE
                   <button type="submit" name="downloadXII" class="btn btn-light mb-3 mx-2">
                     XII
                   </button>
-
-
                 </form>
               </div>
             </div>
             <h6 class="mb-3">Table Siswa</h6>
+
             <form action="" method="post">
               <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -356,9 +355,40 @@ INNER JOIN tb_login ON data_siswa.no_induk_siswa = tb_login.no_induk_siswa WHERE
                 </li>
               </ul>
             </form>
+            <!-- hapus semua data -->
+            <div class="row">
+              <div class="col-md-12">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#hapusSemuaData" class="btn btn-outline-light text-danger my-3 btn-sm">
+                  <i class="bi bi-trash"></i>
+                  Hapus Semua Data</button>
+              </div>
+            </div>
+
+            <!-- Modal Hapus Semua Data -->
+            <div class="modal fade" id="hapusSemuaData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <form action="" method="POST">
+                    <div class="modal-body">
+                      <p>Apakah anda yakin ingin menghapus Semua Data ?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-danger" name="hapusSemuaData">Hapus</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!-- end hapus semua data -->
+
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="X" role="tabpanel" aria-labelledby="X-tab">
-                <div class="table-responsive py-4">
+                <div class="table-responsive">
                   <table id="myTable" class="table table-hover table-borderless" style="width:100%">
                     <thead class="table-dark">
                       <tr>

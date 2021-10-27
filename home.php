@@ -60,7 +60,7 @@ $hasil_siswa = mysqli_fetch_assoc($query_siswa);
 	<div class="container text-center ">
 		<div class="row mt-5">
 			<div class="col-md-12">
-				<img class="mb-4" src="../vector/undraw_voting_nvu7.svg" width="250">
+				<img class="mb-4" src="vector/undraw_voting_nvu7.svg" width="250">
 				<?php if ($hasil_siswa['pemilos'] == "belum memilih") : ?>
 					<h3>Selamat Datang <span class="text-warning"><?= $hasil_siswa['nama']; ?></span> </h3>
 					<h3><?= $hasil_siswa['kelas']; ?></h3>

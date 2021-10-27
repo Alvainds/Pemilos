@@ -1,21 +1,4 @@
-<?php
-include 'control.php';
-
-require_once __DIR__ . '/vendor/autoload.php';
-
-$query_all = mysqli_query($conn, "SELECT count(pemilos) FROM data_siswa");
-$all = mysqli_fetch_assoc($query_all);
-
-$query_sudah = mysqli_query($conn, "SELECT count(pemilos) FROM data_siswa WHERE pemilos = 'sudah memilih'");
-$sudah = mysqli_fetch_assoc($query_sudah);
-
-$query_belum = mysqli_query($conn, "SELECT count(pemilos) FROM data_siswa WHERE pemilos = 'belum memilih'");
-$belum = mysqli_fetch_assoc($query_belum);
-
-$query_calon = mysqli_query($conn, "SELECT * FROM data_calon");
-
-$mpdf = new \Mpdf\Mpdf();
-$html = '<!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -24,7 +7,7 @@ $html = '<!doctype html>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
     <title>CATATAN REKAPITULASI HASIL PENGHITUNGAN PEROLEHAN SUARA</title>
 </head>
@@ -42,32 +25,36 @@ $html = '<!doctype html>
         <div class="row">
             <div class="col-md-12">
                 <table class="table table-bordered">
+                    <thead class="table-dark">
                         <tr>
                             <th scope="col">No</th>
                             <th scope="col">Uraian</th>
                             <th scope="col">Rincian Perolehan Suara</th>
                         </tr>
+                    </thead>
+                    <thead class="table">
                         <tr>
                             <th scope="col">I</th>
                             <th scope="col">DATA PEMILIH DAN PENGGUNAAN HAK PILIH</th>
                             <th scope="col">JUMLAH</th>
                         </tr>
+                    </thead>
                     <tbody>
                         <tr>
                             <th scope="col"></th>
                             <td>Jumlah pemilih dalam DPT (Model A DPT-PPO)</td>
-                            <td>' . $all['count(pemilos)'] . ' siswa</td>
+                            <td>200 siswa</td>
 
                         </tr>
                         <tr>
                             <th scope="col"></th>
                             <td>Jumlah pengguna hak pilih dalam DPT</td>
-                            <td>' . $sudah['count(pemilos)'] . ' siswa</td>
+                            <td>100 siswa</td>
                         </tr>
                         <tr>
                             <th scope="col"></th>
                             <td>Jumlah pengguna hak pilih dalam DPT</td>
-                            <td>' . $belum['count(pemilos)'] . ' siswa</td>
+                            <td>100 siswa</td>
                         </tr>
                     </tbody>
                 </table>
@@ -76,23 +63,30 @@ $html = '<!doctype html>
         <div class="row text-start mt-5">
             <div class="col-md-12">
                 <table class="table table-bordered">
+                    <thead class="table">
                         <tr>
                             <th scope="col">II</th>
                             <th scope="col">PEROLEHAN SUARA CALON/PASANGAN CALON KETUA OSIS</th>
                             <th scope="col">JUMLAH</th>
                         </tr>
-                    ';
-$i = 1;
-foreach ($query_calon as $calon) {
-    $html .= '
-    <tr>
-    <td>' . $i++ . '</td>
-    <td>' . $calon["nama_calon"] . '</td>
-    <td>' . $calon["jumlah_vote"] . '</td>
-    </tr>
-    ';
-}
-$html .= '
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="col"></th>
+                            <td>Jumlah suara sah suara calon</td>
+                            <td>200 siswa</td>
+                        </tr>
+                        <tr>
+                            <th scope="col"></th>
+                            <td>Jumlah suara sah suara calon</td>
+                            <td>200 siswa</td>
+                        </tr>
+                        <tr>
+                            <th scope="col"></th>
+                            <td>Jumlah suara sah suara calon</td>
+                            <td>200 siswa</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -102,7 +96,27 @@ $html .= '
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col-md">
+                <div class="card p-5">
+                    <div class="p-4"></div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="card p-5">
+                    <div class="p-4"></div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="card p-5">
+                    <div class="p-4"></div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="card p-5">
+                    <div class="p-4"></div>
+                </div>
+            </div>
+            <div class="col-md">
                 <div class="card p-5">
                     <div class="p-4"></div>
                 </div>
@@ -136,6 +150,4 @@ $html .= '
     -->
 </body>
 
-</html>';
-$mpdf->WriteHTML($html);
-$mpdf->Output('CATATAN_REKAPITULASI.pdf', \Mpdf\Output\Destination::DOWNLOAD);
+</html>

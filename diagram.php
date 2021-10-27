@@ -126,7 +126,7 @@ $sum = $row['value_sum'];
                     float: none;
                     width: 300px;
                     height: 300px;
-                    object-fit: contain;" src="../vector/undraw_Notify_re_65on.svg" alt="">
+                    object-fit: contain;" src="vector/undraw_Notify_re_65on.svg" alt="">
                 </div>
             </div>
             <div class="row text-center">

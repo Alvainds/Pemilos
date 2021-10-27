@@ -111,7 +111,7 @@ $total_vote = mysqli_fetch_assoc($query_vote);
                         <div class="card card-body m-2 align-items-center flex-fill border-0 bg-light" style="width: 19rem">
                             <h5 class="pt-3 pb-3 text-center"><?= $calon['nama_calon']; ?></h5>
                             <div class="line border border-2 rounded-circle">
-                                <img class="circle" src="../img_calon/<?= $calon['gambar_calon']; ?>" class="card-img-top" alt="gambar-calon">
+                                <img class="circle" src="img_calon/<?= $calon['gambar_calon']; ?>" class="card-img-top" alt="gambar-calon">
                             </div>
                             <div class="card-body text-center my-3">
                                 <div class="btn-group" role="group" aria-label="Basic example">

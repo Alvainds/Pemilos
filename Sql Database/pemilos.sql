@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Okt 2021 pada 12.44
+-- Waktu pembuatan: 17 Okt 2021 pada 10.27
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.7
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `pemilos`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `admin_ipm`
+--
+
+CREATE TABLE `admin_ipm` (
+  `id_ipm` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `admin_ipm`
+--
+
+INSERT INTO `admin_ipm` (`id_ipm`, `username`, `password`) VALUES
+(1, 'ipm', '36df931ba9c9d7abb4302559c13c7ae8');
 
 -- --------------------------------------------------------
 
@@ -60,9 +79,9 @@ CREATE TABLE `data_calon` (
 --
 
 INSERT INTO `data_calon` (`id_calon`, `nama_calon`, `visi`, `misi`, `jumlah_vote`, `gambar_calon`) VALUES
-(5, 'Fajar', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat laboriosam temporibus voluptate rem rerum quidem totam dolores iste, excepturi voluptatum debitis. Eaque ipsum, dolore nam dolores quae vel dignissimos suscipit? Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat laboriosam temporibus voluptate rem rerum quidem totam dolores iste, excepturi voluptatum debitis. Eaque ipsum, dolore nam dolores quae vel dignissimos suscipit? Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat laboriosam temporibus voluptate rem rerum quidem totam dolores iste, excepturi voluptatum debitis. Eaque ipsum, dolore nam dolores quae vel dignissimos suscipit?</p>', '<ul><li>aksjdakjdjahdjahsdjahds</li><li>asdakdkadjansdj</li><li>askdnajksdnakjsd</li><li>asdnaskdnaksd</li></ul>', 1, 'ini-tanda-dan-cara-untuk-berhenti-menjadi-people-pleaser.jpg'),
-(7, 'Alviyan Dhafin Husna', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quo, distinctio repellendus aliquam et fugit. Reiciendis blanditiis ullam perferendis doloribus culpa incidunLorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quo, distinctio repellendus aliquam et fugit. Reiciendis blanditiis ullam perferendis doloribus culpa incidunt error, laboriosam molestiae eveniet quos earum odit? Tempora!t error, laboriosam molestiae eveniet quos earum odit? Tempora!', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quo, distinctio repellendus aliquam et fugit. Reiciendis blanditiis ullam perferendis doloribus culpa incidunt error, laboriosam molestiLorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quo, distinctio repellendus aliquam et fugit. Reiciendis blanditiis ullam perferendis doloribus culpa incidunt error, laboriosam molestiae eveniet quos earum odit? Tempora!ae eveniet quos earum odit? Tempora!', 3, '6146dec13bbc6.png'),
-(8, 'Udin', '<p>asdasda</p>', '<ul><li>asdasdsdasddds</li><li>asd</li><li>asdasdasd</li></ul>', 2, '614c3c4e4920e.jpg');
+(9, 'Udin Saputra', '<ol><li>dfdfafafafasf</li><li>afsafa</li><li>af</li><li>af</li><li>f</li></ol>', '<ul><li>asffaafafafsfsafsaasfaf</li><li>asfasf</li><li>asf</li><li>af</li><li>af</li></ul>', 3, '6166d2c154313.jpg'),
+(10, 'boboiboy', '<ol><li>dasdadaasdadsas</li></ol>', '<p>asdsadsad</p>', 2, '6166d2dd44933.jpg'),
+(11, 'Calon Pertama', '<p>ini visi</p>', '<p>ini misi</p>', 0, '616799d2a9120.jpg');
 
 -- --------------------------------------------------------
 
@@ -83,12 +102,12 @@ CREATE TABLE `data_siswa` (
 --
 
 INSERT INTO `data_siswa` (`id_siswa`, `no_induk_siswa`, `nama`, `kelas`, `pemilos`) VALUES
-(1082, '31231', 'Rahmat Adinata', 'XI RPL 2', 'sudah memilih'),
-(1083, '13231', 'Udin', 'XI RPL 2', 'belum memilih'),
-(1085, '12530', 'ALIVIA MARETYA PUTRI', 'X TAV', 'belum memilih'),
-(1086, '12531', 'CANDRA TRI ADITIYA', 'X TAV', 'belum memilih'),
-(1087, '12532', 'DERICK AJI PRASETYA', 'X TAV', 'belum memilih'),
-(1088, '12533', 'DHIMAS RICHARD APTA ALFREDA NURWANTO', 'X TAV', 'belum memilih');
+(1094, '12529', 'AHMAD SHOLEH', 'X TAV', 'sudah memilih'),
+(1095, '12530', 'ALIVIA MARETYA PUTRI', 'X TAV', 'sudah memilih'),
+(1096, '12531', 'CANDRA TRI ADITIYA', 'X TAV', 'belum memilih'),
+(1097, '12532', 'DERICK AJI PRASETYA', 'X TAV', 'belum memilih'),
+(1098, '12533', 'DHIMAS RICHARD APTA ALFREDA NURWANTO', 'X TAV', 'belum memilih'),
+(1099, '21313', 'asdad', 'XII RPL 2', 'belum memilih');
 
 -- --------------------------------------------------------
 
@@ -182,12 +201,12 @@ CREATE TABLE `tb_login` (
 --
 
 INSERT INTO `tb_login` (`id_login`, `no_induk_siswa`, `password`, `aktif`) VALUES
-(23, '31231', 'JtOS8', '1'),
-(24, '13231', 'LCGTy', '0'),
-(26, '12530', 'ADPkb', '0'),
-(27, '12531', '3QTDb', '0'),
-(28, '12532', 'it91m', '0'),
-(29, '12533', 'z1OAd', '0');
+(35, '12529', 'NMPmM', '1'),
+(36, '12530', '4ztrU', '0'),
+(37, '12531', 'B7wQw', '0'),
+(38, '12532', '2Pu0T', '0'),
+(39, '12533', 'ZFJIG', '0'),
+(40, '21313', 'DNX78', '0');
 
 -- --------------------------------------------------------
 
@@ -206,13 +225,19 @@ CREATE TABLE `tb_vote` (
 --
 
 INSERT INTO `tb_vote` (`id`, `class`, `status`) VALUES
-(3, 'X', 'enable'),
+(3, 'X', 'disable'),
 (4, 'XI', 'disable'),
-(5, 'XII', 'enable');
+(5, 'XII', 'disable');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indeks untuk tabel `admin_ipm`
+--
+ALTER TABLE `admin_ipm`
+  ADD PRIMARY KEY (`id_ipm`);
 
 --
 -- Indeks untuk tabel `data_admin`
@@ -261,6 +286,12 @@ ALTER TABLE `tb_vote`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `admin_ipm`
+--
+ALTER TABLE `admin_ipm`
+  MODIFY `id_ipm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `data_admin`
 --
 ALTER TABLE `data_admin`
@@ -270,13 +301,13 @@ ALTER TABLE `data_admin`
 -- AUTO_INCREMENT untuk tabel `data_calon`
 --
 ALTER TABLE `data_calon`
-  MODIFY `id_calon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_calon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_siswa`
 --
 ALTER TABLE `data_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1089;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1100;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_chart`
@@ -294,7 +325,7 @@ ALTER TABLE `tb_kelas`
 -- AUTO_INCREMENT untuk tabel `tb_login`
 --
 ALTER TABLE `tb_login`
-  MODIFY `id_login` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_login` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_vote`
